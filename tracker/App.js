@@ -1,12 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { connect } from 'react-redux';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {  }
+  }
+  render() { 
+    return ( 
+      <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
     </View>
-  );
+     );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -17,3 +24,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    exercise: state.exercise,
+  }
+};
+ 
+export default connect(mapStateToProps, null)(App);
