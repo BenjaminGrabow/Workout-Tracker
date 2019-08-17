@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import reducer from './store/reducer';
+import React from 'react';
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 

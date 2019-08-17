@@ -1,7 +1,14 @@
 import * as actionType from './actions';
 
-const state = {
+const initialState = {
   exercises: null,
 };
 
-export default const reducer = (state, action)  
+const reducer = (state = initialState, action) => {
+  switch(action) {
+    // case actionType. :
+    default: return state;
+  };
+};
+
+export default reducer;
