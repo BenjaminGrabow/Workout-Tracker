@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { start, getById } from './store/actions';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,7 +11,17 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.start();
+    // this.props.start();
+    const adress = 'http://localhost:3500/';
+
+    axios.get(adress)
+    .then(res => {
+      
+     console.warn(res)
+    })
+    .catch(err => {
+      debugger
+    })
   };
 
   render() {
