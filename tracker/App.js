@@ -1,18 +1,38 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
+import { start, getById } from './store/actions';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = {}
   }
-  render() { 
-    return ( 
-      <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-     );
+
+  componentDidMount = () => {
+    this.props.start();
+  };
+
+  render() {
+
+    if (this.props.byId) {
+      return (
+        <View>
+           <Text>{this.props.byId.exercise}</Text>
+           <Text>{this.props.byId.description}</Text>
+          {/* <img src={this.props.byId[0].gif} alt="alt"/>  */}
+        </View>
+      )
+    }
+
+    return (
+      this.props.exercise ? (this.props.exercise.map(exer => {
+        return <View style={styles.container}>
+          <Text
+            onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
+        </View>
+      })) : null
+    );
   }
 }
 
@@ -28,7 +48,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     exercise: state.exercise,
-  }
+    byId: state.byId
+  };
 };
- 
-export default connect(mapStateToProps, null)(App);
+
+export default connect(mapStateToProps, { start, getById })(App);
