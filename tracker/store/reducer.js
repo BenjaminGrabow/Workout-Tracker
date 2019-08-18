@@ -8,6 +8,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.START:
+     
       return { ...state, exercise: action.payload };
 
     case types.GET_BY_ID:

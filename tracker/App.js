@@ -11,17 +11,7 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    // this.props.start();
-    const adress = 'http://localhost:3500/';
-
-    axios.get(adress)
-    .then(res => {
-      
-     console.warn(res)
-    })
-    .catch(err => {
-      debugger
-    })
+    this.props.start();
   };
 
   render() {
@@ -53,6 +43,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    color: 'black'
   },
 });
 
