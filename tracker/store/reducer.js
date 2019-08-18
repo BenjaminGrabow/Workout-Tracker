@@ -12,16 +12,20 @@ const reducer = (state = initialState, action) => {
       return { ...state, exercise: action.payload };
 
     case types.GET_BY_ID:
-      const yeah = action.payload;
+      // const yeah = action.payload;
 
-      const id = action.id;
+      // const id = action.id;
 
-      const findExercise = state.exercise.filter(exer => exer.id === id);
+      // const findExercise = state.exercise.filter(exer => exer.id === id);
 
-      const merge = Object.assign({}, findExercise[0], yeah); 
+      // const merge = Object.assign({}, findExercise[0], yeah); 
 
-      debugger
-      return { ...state, byId: merge  };
+      // debugger
+      // return { ...state, byId: merge  };
+
+      const filterExercise = state.exercise.filter(exercise => exercise.id === action.id);
+
+      return {...state, byId: filterExercise };
 
     default: return state;
   }

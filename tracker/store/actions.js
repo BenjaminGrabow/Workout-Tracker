@@ -159,13 +159,15 @@ export const start = () => {
 };
 
 
-export const getById = (id) => dispatch => {
-  return axios.get(`${adress}user/${id}`)
-    .then(res => {
-      debugger
-      dispatch({ type: GET_BY_ID, payload: res.data, id: id });
-    })
-    .catch(err => {
-      debugger
-    })
+export const getById = (id) => {
+  // return axios.get(`${adress}user/${id}`)
+  //   .then(res => {
+  //     debugger
+  //     dispatch({ type: GET_BY_ID, payload: res.data, id: id });
+  //   })
+  //   .catch(err => {
+  //     debugger
+  //   })
+
+  return { type: GET_BY_ID, id: id};
 };
