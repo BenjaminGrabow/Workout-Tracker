@@ -3,7 +3,8 @@ import SignUp from './components/SignUp/SignUp';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { start, getById } from './store/actions';
-import axios from 'axios';
+import { Route } from 'react-router-native';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class App extends React.Component {
     //         onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
     //     </View>
     //   })) : null
-    <SignUp/>
+    <Route path="/" component={SignUp} />
     );
   }
 }
