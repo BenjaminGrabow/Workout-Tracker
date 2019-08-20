@@ -10,12 +10,12 @@ class SignUp extends React.Component {
       username: '',
       email: '',
       password: '',
-      passwordCheck: ''
+      passwordCheck: null
       }
   }
 
   signup = () => {
-    if(password === passwordCheck){
+    if(this.state.password === this.state.passwordCheck){
 
       this.props.signUp(
         this.state.username,
