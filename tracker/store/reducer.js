@@ -1,14 +1,27 @@
 import * as types from './actions';
 
 const initialState = {
+  error: null,
+  loggingIn: false,
   exercise: null,
   byId: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.REGISTER:
+      return { ...state };
+
+    case types.LOGIN_START:
+      return { ...state, loggingIn: true };
+
+    case types.LOGIN_SUCCESS:
+      return { ...state, loggingIn: false };
+
+    case types.LOGIN_FAIL:
+      return { ...state, loggingIn: false, error: action.payload }
     case types.START:
-     
+
       return { ...state, exercise: action.payload };
 
     case types.GET_BY_ID:
@@ -24,8 +37,8 @@ const reducer = (state = initialState, action) => {
       // return { ...state, byId: merge  };
 
       const filterExercise = state.exercise.filter(exercise => exercise.id === action.id);
-debugger
-      return {...state, byId: filterExercise };
+      debugger
+      return { ...state, byId: filterExercise };
 
     default: return state;
   }

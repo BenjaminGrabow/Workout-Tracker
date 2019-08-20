@@ -2,6 +2,10 @@ import axios from 'axios';
 
 export const START = 'START';
 export const GET_BY_ID = 'GET_BY_ID';
+export const LOGIN_START = 'LOGIN_START';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const REGISTER = 'REGISTER';
 
 const dummyData = [
   ////    ARMS   \\\\
@@ -143,6 +147,35 @@ const dummyData = [
 ];
 
 const adress = 'http://localhost:3500/';
+
+export const signUp = creds => dispatch => {
+  return axios.post(`${adress}auth/register`, creds)
+    .then(res => {
+
+      dispatch({ type: REGISTER });
+    })
+    .catch(err => {
+      debugger
+    })
+};
+
+export const login = creds => dispatch => {
+  dispatch({ type: LOGIN_START });
+
+  return axios.post(`${adress}auth/login`, creds)
+    .then(res => {
+
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('user_id', res.data.id);
+
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      debugger
+      dispatch({ type: LOGIN_FAIL, payload: err.response.data.message });
+    });
+};
+
 
 export const start = () => {
   // return axios.get(adress)
