@@ -16,21 +16,27 @@ class SignUp extends React.Component {
 
   signup = () => {
     if(this.state.password === this.state.passwordCheck){
-
-      this.props.signUp(
-        this.state.username,
-        this.state.email,
-        this.state.password
-      );
-      
-      this.setState({
-        username: '',
-        email: '',
-        password: '',
-        passwordCheck: ''
-      });
-      
-      this.props.history.push('/login')
+if(this.state.username.length > 5 &&
+  this.state.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/)) {
+    this.props.signUp(
+      this.state.username,
+      this.state.email,
+      this.state.password
+    );
+    
+    this.setState({
+      username: '',
+      email: '',
+      password: '',
+      passwordCheck: ''
+    });
+    
+    this.props.history.push('/login');
+  }else {
+    alert(`Username must be longer then 5 characters
+     and Password at least 8 characters long with lower + 
+     upper case, number + special character`);
+  }
     } else {
       alert('Password must be the same !')
     }
