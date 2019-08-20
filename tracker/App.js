@@ -19,16 +19,18 @@ class App extends React.Component {
     if (this.props.byId) {
       return (
         <View>
-           <Text>{this.props.byId.exercise}</Text>
-           <Text>{this.props.byId.description}</Text>
+           <Text>{this.props.byId[0].exercise}</Text>
+           <Text>{this.props.byId[0].description}</Text>
           {/* <img src={this.props.byId[0].gif} alt="alt"/>  */}
         </View>
       )
     }
 
     return (
-      this.props.exercise ? (this.props.exercise.map(exer => {
-        return <View style={styles.container}>
+      this.props.exercise ? (this.props.exercise.map((exer, index) => {
+        return <View
+        key={index}
+         style={styles.container}>
           <Text
             onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
         </View>

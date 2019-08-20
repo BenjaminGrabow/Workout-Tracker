@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
       // return { ...state, byId: merge  };
 
       const filterExercise = state.exercise.filter(exercise => exercise.id === action.id);
-
+debugger
       return {...state, byId: filterExercise };
 
     default: return state;

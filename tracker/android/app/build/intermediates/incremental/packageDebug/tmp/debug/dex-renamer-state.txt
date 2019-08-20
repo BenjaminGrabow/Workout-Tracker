@@ -1,4 +1,4 @@
-#Sat Aug 17 22:29:35 CEST 2019
+#Tue Aug 20 20:23:04 CEST 2019
 path.38=classes.dex
 base.10=C\:\\Users\\sandr\\Desktop\\Workout-Tracker\\tracker\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\29
 path.37=classes.dex
