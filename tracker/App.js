@@ -64,3 +64,8 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { start, getById })(App);
+
+// Logout 
+// logout = () => {
+//   localStorage.clear();
+//  };
