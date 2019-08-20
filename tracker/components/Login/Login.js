@@ -44,7 +44,7 @@ this.setState({
       />
       <Button
             onPress={this.login}
-            title="Sign Up"
+            title="Login"
           />
     </View>
      );
