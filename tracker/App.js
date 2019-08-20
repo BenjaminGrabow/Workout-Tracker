@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUp from './components/SignUp/SignUp';
+import Login from './components/Login/Login';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { start, getById } from './store/actions';
@@ -37,7 +38,10 @@ class App extends React.Component {
     //         onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
     //     </View>
     //   })) : null
+    <View>
     <Route path="/" component={SignUp} />
+    <Route path="/login" component={Login} />
+    </View>
     );
   }
 }
