@@ -1,9 +1,8 @@
 import React from 'react';
 import SignUp from './components/SignUp/SignUp';
 import Login from './components/Login/Login';
+import Exercises from './components/Exercises/Exercises';
 import { StyleSheet, Text, View } from 'react-native';
-import { connect } from 'react-redux';
-import { start, getById } from './store/actions';
 import { Route } from 'react-router-native';
 
 
@@ -20,6 +19,7 @@ class App extends React.Component {
     <View>
     <Route exact path="/" component={SignUp} />
     <Route path="/login" component={Login} />
+    <Route path="/libary" component={Exercises} />
     </View>
     );
   }
@@ -42,7 +42,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { start, getById })(App);
+export default App;
 
 // Logout 
 // logout = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import { start, getById } from './store/actions';
+import { start, getById } from '../../store/actions';
 
 class Exercises extends React.Component {
   constructor(props) {
@@ -26,8 +26,7 @@ class Exercises extends React.Component {
     return ( 
          this.props.exercise ? (this.props.exercise.map((exer, index) => {
         return <View
-        key={index}
-         style={styles.container}>
+        key={index}>
           <Text
             onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
         </View>

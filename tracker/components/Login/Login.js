@@ -13,15 +13,18 @@ class Login extends React.Component {
   }
 
   login = () => {
-this.props.signUp(
-  this.state.username,
-  this.state.password
-);
+// this.props.login(
+//   this.state.username,
+//   this.state.password
+// );
 
-this.setState({
-  username: '',
-  password: '',
-});
+// this.setState({
+//   username: '',
+//   password: '',
+// });
+
+this.props.history.push('/libary')
+
   };
  
   render() { 
