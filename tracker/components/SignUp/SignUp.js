@@ -33,28 +33,34 @@ this.setState({
     return ( 
       <View style={{padding: 10}}>
       <TextInput
-        style={{height: 40}}
+         style={{height: 45,width: "95%",borderColor: "gray",borderWidth: 2}}
         placeholder="Username"
         onChangeText={(username) => this.setState({username})}
         value={this.state.username}
       />
        <TextInput
-        style={{height: 40}}
+         style={{height: 45,width: "95%",borderColor: "gray",borderWidth: 2}}
         placeholder="Email"
         onChangeText={(email) => this.setState({email})}
         value={this.state.email}
       />
        <TextInput
-        style={{height: 40}}
+    style={{height: 45,width: "95%",borderColor: "gray",borderWidth: 2}}
         placeholder="Password"
         onChangeText={(password) => this.setState({password})}
         value={this.state.password}
+        underlineColorAndroid="transparent"
+        // Making the Text Input Text Hidden.
+        secureTextEntry={true}
       />
       <TextInput
-        style={{height: 40}}
+         style={{height: 45,width: "95%",borderColor: "gray",borderWidth: 2}}
         placeholder="Password Check"
         onChangeText={(passwordCheck) => this.setState({passwordCheck})}
         value={this.state.passwordCheck}
+        underlineColorAndroid="transparent"
+        // Making the Text Input Text Hidden.
+        secureTextEntry={true}
       />
       <Button
             onPress={this.signup}
