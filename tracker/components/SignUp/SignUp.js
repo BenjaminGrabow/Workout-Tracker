@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { start, getById } from '../../store/actions';
+import { signUp } from '../../store/actions';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -13,6 +13,21 @@ class SignUp extends React.Component {
       passwordCheck: ''
       }
   }
+
+  signup = () => {
+this.props.signUp(
+  this.state.username,
+  this.state.email,
+  this.state.password
+);
+
+this.setState({
+  username: '',
+  email: '',
+  password: '',
+  passwordCheck: ''
+});
+  };
  
   render() { 
     return ( 
@@ -41,9 +56,13 @@ class SignUp extends React.Component {
         onChangeText={(passwordCheck) => this.setState({passwordCheck})}
         value={this.state.passwordCheck}
       />
+      <Button
+            onPress={this.signup}
+            title="Sign Up"
+          />
     </View>
      );
   }
 }
  
-export default SignUp;
+export default connect(null, { signUp })(SignUp);
