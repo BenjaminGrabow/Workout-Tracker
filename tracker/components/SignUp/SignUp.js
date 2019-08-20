@@ -15,20 +15,25 @@ class SignUp extends React.Component {
   }
 
   signup = () => {
-this.props.signUp(
-  this.state.username,
-  this.state.email,
-  this.state.password
-);
+    if(password === passwordCheck){
 
-this.setState({
-  username: '',
-  email: '',
-  password: '',
-  passwordCheck: ''
-});
-
-this.props.history.push('/login')
+      this.props.signUp(
+        this.state.username,
+        this.state.email,
+        this.state.password
+      );
+      
+      this.setState({
+        username: '',
+        email: '',
+        password: '',
+        passwordCheck: ''
+      });
+      
+      this.props.history.push('/login')
+    } else {
+      alert('Password must be the same !')
+    }
   };
  
   render() { 
