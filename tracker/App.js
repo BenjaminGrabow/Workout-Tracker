@@ -39,7 +39,7 @@ class App extends React.Component {
     //     </View>
     //   })) : null
     <View>
-    <Route path="/" component={SignUp} />
+    <Route exact path="/" component={SignUp} />
     <Route path="/login" component={Login} />
     </View>
     );

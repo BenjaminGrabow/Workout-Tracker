@@ -27,6 +27,8 @@ this.setState({
   password: '',
   passwordCheck: ''
 });
+
+this.props.history.push('/login')
   };
  
   render() { 
