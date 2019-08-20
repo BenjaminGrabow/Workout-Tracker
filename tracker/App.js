@@ -1,4 +1,5 @@
 import React from 'react';
+import SignUp from './components/SignUp/SignUp';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { start, getById } from './store/actions';
@@ -16,25 +17,26 @@ class App extends React.Component {
 
   render() {
 
-    if (this.props.byId) {
-      return (
-        <View>
-           <Text>{this.props.byId[0].exercise}</Text>
-           <Text>{this.props.byId[0].description}</Text>
-          {/* <img src={this.props.byId[0].gif} alt="alt"/>  */}
-        </View>
-      )
-    }
+    // if (this.props.byId) {
+    //   return (
+    //     <View>
+    //        <Text>{this.props.byId[0].exercise}</Text>
+    //        <Text>{this.props.byId[0].description}</Text>
+    //       {/* <img src={this.props.byId[0].gif} alt="alt"/>  */}
+    //     </View>
+    //   )
+    // }
 
     return (
-      this.props.exercise ? (this.props.exercise.map((exer, index) => {
-        return <View
-        key={index}
-         style={styles.container}>
-          <Text
-            onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
-        </View>
-      })) : null
+    //   this.props.exercise ? (this.props.exercise.map((exer, index) => {
+    //     return <View
+    //     key={index}
+    //      style={styles.container}>
+    //       <Text
+    //         onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
+    //     </View>
+    //   })) : null
+    <SignUp/>
     );
   }
 }
