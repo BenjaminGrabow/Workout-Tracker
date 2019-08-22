@@ -14,15 +14,14 @@ class Exercises extends React.Component {
   };
 
   render() { 
-     if (this.props.byId) {
-      return (
+     this.props.byId ? (
         <View>
            <Text>{this.props.byId[0].exercise}</Text>
            <Text>{this.props.byId[0].description}</Text>
           {/* <img src={this.props.byId[0].gif} alt="alt"/>  */}
         </View>
-      )
-    }
+      ) : null
+    
     return ( 
          this.props.exercise ? (this.props.exercise.map((exer, index) => {
         return <View
