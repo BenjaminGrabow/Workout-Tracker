@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { login } from '../../store/actions';
+import { FontAwesome } from 'react-native-vector-icons';
 
 class Login extends React.Component {
   constructor(props) {
@@ -49,6 +50,7 @@ this.props.history.push('/libary')
             onPress={this.login}
             title="Login"
           />
+          <FontAwesome name="camera" size={50} color="black" />
     </View>
      );
   }

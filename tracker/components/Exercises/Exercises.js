@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, CheckBox } from 'react-native';
 import { connect } from 'react-redux';
 import { start, getById } from '../../store/actions';
 
