@@ -18,7 +18,7 @@ class Exercises extends React.Component {
      if (this.props.singleExercise) {
       return (
         <View>
-<AntDesign onPress={() => this.props.closeExercise} name="closecircle" size={50} color="black" />
+<AntDesign onPress={() => this.props.closeExercise()} name="closecircle" size={50} color="black" />
            <Text>{this.props.singleExercise[0].exercise}</Text>
            <Text>{this.props.singleExercise[0].description}</Text>
           {/* <img src={this.props.singleExercise[0].gif} alt="alt"/>  */}

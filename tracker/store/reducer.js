@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
       return { ...state, singleExercise: filterExercise };
 
       case types.CLOSE_EXERCISE:
-      return { ...state, singleExercise: false };
+      return { ...state, singleExercise: null };
     default: return state;
   }
 };
