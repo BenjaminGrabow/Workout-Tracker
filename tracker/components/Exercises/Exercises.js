@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, CheckBox } from 'react-native';
 import { connect } from 'react-redux';
-import { start, getById } from '../../store/actions';
+import { start, showExercise } from '../../store/actions';
+import { AntDesign } from 'react-native-vector-icons';
 
 class Exercises extends React.Component {
   constructor(props) {
@@ -14,20 +15,22 @@ class Exercises extends React.Component {
   };
 
   render() { 
-     this.props.byId ? (
+     if (this.props.byId) {
+      return (
         <View>
+<AntDesign onPress={() => this.props.closeExercise} name="closecircle" size={50} color="black" />
            <Text>{this.props.byId[0].exercise}</Text>
            <Text>{this.props.byId[0].description}</Text>
           {/* <img src={this.props.byId[0].gif} alt="alt"/>  */}
         </View>
-      ) : null
-    
+      )
+    }
     return ( 
          this.props.exercise ? (this.props.exercise.map((exer, index) => {
         return <View
         key={index}>
           <Text
-            onPress={() => this.props.getById(exer.id)}>{exer.exercise}</Text>
+            onPress={() => this.props.showExercise(exer.id)}>{exer.exercise}</Text>
         </View>
       })) : null
      );
@@ -41,4 +44,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { start, getById })(Exercises);
+export default connect(mapStateToProps, { start, showExercise })(Exercises);

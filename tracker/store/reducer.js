@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
 
       return { ...state, exercise: action.payload };
 
-    case types.GET_BY_ID:
+    case types.SHOW_EXERCISE:
       // const yeah = action.payload;
 
       // const id = action.id;

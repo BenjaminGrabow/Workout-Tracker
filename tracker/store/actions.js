@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const START = 'START';
-export const GET_BY_ID = 'GET_BY_ID';
+export const SHOW_EXERCISE = 'SHOW_EXERCISE';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -192,7 +192,7 @@ export const start = () => {
 };
 
 
-export const getById = (id) => {
+export const showExercise = (id) => {
   // return axios.get(`${adress}user/${id}`)
   //   .then(res => {
   //     debugger
@@ -202,5 +202,5 @@ export const getById = (id) => {
   //     debugger
   //   })
 
-  return { type: GET_BY_ID, id: id};
+  return { type: SHOW_EXERCISE, id: id};
 };
