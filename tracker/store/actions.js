@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const START = 'START';
 export const SHOW_EXERCISE = 'SHOW_EXERCISE';
+export const CLOSE_EXERCISE = 'CLOSE_EXERCISE';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -203,4 +204,8 @@ export const showExercise = (id) => {
   //   })
 
   return { type: SHOW_EXERCISE, id: id};
+};
+
+export const closeExercise = () => {
+  return { type: CLOSE_EXERCISE };
 };

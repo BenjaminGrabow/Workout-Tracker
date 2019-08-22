@@ -4,7 +4,7 @@ const initialState = {
   error: null,
   loggingIn: false,
   exercise: null,
-  byId: null,
+  singleExercise: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -37,9 +37,10 @@ const reducer = (state = initialState, action) => {
       // return { ...state, byId: merge  };
 
       const filterExercise = state.exercise.filter(exercise => exercise.id === action.id);
-      debugger
-      return { ...state, byId: filterExercise };
+      return { ...state, singleExercise: filterExercise };
 
+      case types.CLOSE_EXERCISE:
+      return { ...state, singleExercise: false };
     default: return state;
   }
 };
