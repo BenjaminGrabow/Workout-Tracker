@@ -38,24 +38,65 @@ class Exercises extends React.Component {
   };
 
   render() { 
+    const muscles = ['Chest', 'Forearms', 'Quadriceps', "Middle Back", 
+    'Lats', 'Lower Back', 'Neck', 'Hamstrings',
+    'Calves', 'Triceps', 'Traps', 'Shoulders', 'Abdominals',
+    'Glutes', 'Biceps', "Adductors", "Abductors"];
+
      if (this.props.singleExercise) {
+       const singleExercise = this.props.singleExercise[0];
       return (
         <View>
 <AntDesign onPress={() => this.props.closeExercise()} name="closecircle" size={50} color="black" />
-           <Text>{this.props.singleExercise[0].exercise}</Text>
-           <Text>{this.props.singleExercise[0].description}</Text>
-          {/* <img src={this.props.singleExercise[0].gif} alt="alt"/>  */}
+           <Text>{singleExercise.exercise_name}</Text>
+           <Text>{singleExercise.description}</Text>
+           <Text>{singleExercise.difficulty}</Text>
+           <Text>{singleExercise.type}</Text>
+           <Text>{singleExercise.muscle}</Text>
+           <Text>{singleExercise.equipment}</Text>
+
+        
         </View>
       )
     }
+
+    
+    // SINGLE-EXERCISE VIEW
+    
+//           <img src={singleExercise.picture_one} alt="" />
+//           <img src={singleExercise.picture_two} alt="" />
+//           <video width="320" height="240" controls>
+//   <source src={singleExercise.video} type="video/mp4" />
+// Your browser does not support the video tag.
+
     return ( 
-         this.props.exercise ? (this.props.exercise.map((exer, index) => {
-        return <View
-        key={index}>
+      <View className="exercise-library">
+      <View className="categories">
+        {muscles
+        .map((category, index) =>
+         <button  key={index} onClick={this.showCategory}>{category}</button>)}
+      </View>
+      
+      <input value={this.state.searchForName} onChange={this.handleChange} placeholder="Search for Exercise" />
+<button onClick={this.searchForName} >Search</button>
+
+      {this.props.exercises ? (this.props.exercises.map((exercise, index) => {
+        return <View key={index}>
           <Text
-            onPress={() => this.props.showExercise(exer.id)}>{exer.exercise}</Text>
+            onPress={() => this.props.getExercise(exercise.id)}>{exercise.exercise_name}</Text>
+          <button>Add</button>
+          {/* // add onClick for adding exercise to workout  */}
+
         </View>
-      })) : null
+      })) : null}
+
+      {this.props.pageNumbers ? (this.props.pageNumbers.map((num, index) => {
+        return <button key={index}
+          onPress={() => this.props.paginate(num)}>
+          {num}
+        </button>
+      })) : null}
+    </View>
      );
   }
 }
