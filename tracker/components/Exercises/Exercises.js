@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, CheckBox } from 'react-native';
+import { StyleSheet, Text, View, CheckBox, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchExercises, showCategory, closeExercise, paginate, getExercise, searchExercise } from '../../store/actions';
 import { AntDesign } from 'react-native-vector-icons';
@@ -7,11 +7,34 @@ import { AntDesign } from 'react-native-vector-icons';
 class Exercises extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = {
+      searchForName: '',
+    }
   }
-  
+
   componentDidMount = () => {
-    this.props.start();
+    this.props.fetchExercises();
+
+    setTimeout(() => this.props.showCategory('Chest'), 1000);// That we dont see all exercises at the start
+  };
+
+  handleChange = (e) => {
+
+    this.setState({
+      searchForName: e.target.value,
+    });
+  };
+
+  searchForName = () => {
+  this.props.searchExercise(this.state.searchForName);
+
+  this.setState({
+    searchForName: '',
+  });
+  };
+
+  showCategory = e => {
+    this.props.showCategory(e.target.textContent);
   };
 
   render() { 
