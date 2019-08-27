@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, CheckBox, Image } from 'react-native';
+import { StyleSheet, Text, View, CheckBox, Image, Button, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchExercises, showCategory, closeExercise, paginate, getExercise, searchExercise } from '../../store/actions';
 import { AntDesign } from 'react-native-vector-icons';
@@ -55,7 +55,7 @@ class Exercises extends React.Component {
            <Text>{singleExercise.muscle}</Text>
            <Text>{singleExercise.equipment}</Text>
 
-        
+
         </View>
       )
     }
@@ -74,27 +74,33 @@ class Exercises extends React.Component {
       <View className="categories">
         {muscles
         .map((category, index) =>
-         <button  key={index} onClick={this.showCategory}>{category}</button>)}
+         <Button  key={index} onPress={this.showCategory} title={category} />)}
       </View>
       
-      <input value={this.state.searchForName} onChange={this.handleChange} placeholder="Search for Exercise" />
-<button onClick={this.searchForName} >Search</button>
+      <TextInput
+    style={{height: 45,width: "95%",borderColor: "gray",borderWidth: 2}}
+        placeholder="Search Exercise"
+        onChangeText={(searchExercise) => this.handleChange(searchExercise)}
+        value={this.state.searchForName}
+        underlineColorAndroid="transparent"
+        // Making the Text Input Text Hidden.
+        secureTextEntry={true}
+      />
+<Button onPress={this.searchForName} title="Search"/>
 
       {this.props.exercises ? (this.props.exercises.map((exercise, index) => {
         return <View key={index}>
           <Text
             onPress={() => this.props.getExercise(exercise.id)}>{exercise.exercise_name}</Text>
-          <button>Add</button>
+          <Button title="Add" />
           {/* // add onClick for adding exercise to workout  */}
-
         </View>
       })) : null}
 
       {this.props.pageNumbers ? (this.props.pageNumbers.map((num, index) => {
-        return <button key={index}
-          onPress={() => this.props.paginate(num)}>
-          {num}
-        </button>
+        return <Button key={index}
+          onPress={() => this.props.paginate(num)}
+          title={num} />
       })) : null}
     </View>
      );
