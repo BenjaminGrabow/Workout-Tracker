@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, CheckBox } from 'react-native';
 import { connect } from 'react-redux';
-import { start, showExercise, closeExercise } from '../../store/actions';
+import { fetchExercises, showCategory, closeExercise, paginate, getExercise, searchExercise } from '../../store/actions';
 import { AntDesign } from 'react-native-vector-icons';
 
 class Exercises extends React.Component {
@@ -39,9 +39,10 @@ class Exercises extends React.Component {
  
 const mapStateToProps = state => {
   return {
-    exercise: state.exercise,
-    singleExercise: state.singleExercise
+    exercises: state.exercises,
+    singleExercise: state.singleExercise,
+    pageNumbers: state.pageNumbers,
   };
 };
 
-export default connect(mapStateToProps, { start, showExercise, closeExercise })(Exercises);
+export default connect(mapStateToProps, { fetchExercises, showCategory, closeExercise, paginate, getExercise, searchExercise })(Exercises);
