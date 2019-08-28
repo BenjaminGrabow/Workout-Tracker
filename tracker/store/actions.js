@@ -13,9 +13,6 @@ export const SEARCH_EXERCISE = 'SEARCH_EXERCISE';
 
 const exercises = 'http://localhost:5000/exercises';
 
-
-const adress = 'http://localhost:3500/';
-
 export const signUp = creds => dispatch => {
   return axios.post(`${adress}auth/register`, creds)
     .then(res => {
@@ -45,17 +42,20 @@ export const login = creds => dispatch => {
 };
 
 export const fetchExercises = () => dispatch => {
-  return axios.get(exercises)
-    .then(res => {
-      
-      dispatch({ type: FETCH_EXERCISES, payload: res.data });
-    })
-    .catch(err => {
-      
-    })
+  
+ // instead of localhost use the IP adress !!!
+    axios.get('http://192.168.178.43:5000/exercises')
+      .then(res => {
+       debugger
+        dispatch({ type: FETCH_EXERCISES, payload: res.data });
+      })
+      .catch(err => {
+        debugger
+      });
 };
 
 export const getExercise = (id) => {
+  debugger
   return { type: GET_EXERCISE, id: id }; 
 };
 

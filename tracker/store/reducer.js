@@ -24,13 +24,15 @@ const reducer = (state = initialState, action) => {
 
     case types.LOGIN_FAIL:
       return { ...state, loggingIn: false, error: action.payload }
+      
       case types.FETCH_EXERCISES:
-        const filterExercisesWithoutRating = action.payload.filter(exercise => exercise.exercise_ratings !== "n/a");
+        const filterExercisesWithoutRating = action.payload;
         debugger
         return { ...state, exercises: filterExercisesWithoutRating, copyOfExercises: filterExercisesWithoutRating };
   
         case types.SHOW_CATGEGORY:
           let searchResultForCategory = state.copyOfExercises.filter(exer => exer.muscle === action.category);
+          debugger
           // SEARCH THE CLICKED CATEGORY
           
           const indexOfLastPost = state.currentPage * state.postsPerPage;

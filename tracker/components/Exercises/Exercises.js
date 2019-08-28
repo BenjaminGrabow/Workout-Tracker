@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { StyleSheet, Text, View, CheckBox, Image, Button, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchExercises, showCategory, closeExercise, paginate, getExercise, searchExercise } from '../../store/actions';
@@ -12,10 +13,8 @@ class Exercises extends React.Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.props.fetchExercises();
-
-    setTimeout(() => this.props.showCategory('Chest'), 1000);// That we dont see all exercises at the start
   };
 
   handleChange = (e) => {
